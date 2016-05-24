@@ -8,4 +8,8 @@ If you have improvements you are welcome to issue a pull request. If you have qu
 
 
 ## For Expedia Connectivity API Owners
-Please organize your additional content and utilities into sub-directories, one top-level directory per API. Please contact Lodging Connectivity for additional questions, suggestions, and any issues.
+Please observe the following conventions:
+* Organize your additional content and utilities into sub-directories, one top-level directory per API. 
+* Add the header from /ExpediaInternal/FileHeader to your files as a comment near the top.
+
+Contact Lodging Connectivity for additional questions, suggestions, and any issues.
