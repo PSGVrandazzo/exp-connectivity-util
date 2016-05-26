@@ -48,7 +48,7 @@ public class CompetitorSetEventsSample {
 
             String jsonString = target.queryParam("hotelId", hotelId)
                     .queryParam("startDate", "2014-01-01")
-                    .queryParam("endDate", "2016-05-10")
+                    .queryParam("endDate", "2016-06-01")
                     .request(MediaType.APPLICATION_JSON)
                     .get(String.class);
 
@@ -60,7 +60,7 @@ public class CompetitorSetEventsSample {
 
             AddCompSetResponse addCompSetResponse = target.queryParam("hotelId", hotelId)
                     .queryParam("startDate", "2014-01-01")
-                    .queryParam("endDate", "2016-05-10")
+                    .queryParam("endDate", "2016-06-01")
                     .request(MediaType.APPLICATION_JSON)
                     .get(AddCompSetResponse.class);
 

@@ -5,13 +5,20 @@ Your viewing and use of this file contitutes consent to the Expedia Connectivity
 
 package com.expediapartnercentral.developer.competitorsetevents.data;
 
+import org.codehaus.jackson.annotate.JsonProperty;
+
 import java.util.List;
 
 public class AddCompSetData {
+
+    @JsonProperty("HotelId")
     private int HotelId;
+
+    @JsonProperty("HotelName")
     private String HotelName;
     private String startDate;
     private String endDate;
+    private int limit;
     private List<Competitor> compSet;
 
     public int getHotelId() {
@@ -52,5 +59,13 @@ public class AddCompSetData {
 
     public void setCompSet(List<Competitor> compSet) {
         this.compSet = compSet;
+    }
+
+    public int getLimit() {
+        return limit;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
     }
 }
