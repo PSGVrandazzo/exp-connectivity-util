@@ -11,5 +11,6 @@ If you have improvements you are welcome to issue a pull request. If you have qu
 Please observe the following conventions:
 * Organize your additional content and utilities into sub-directories, one top-level directory per API. 
 * Add the header from /ExpediaInternal/FileHeader to your files as a comment near the top.
+* Add a Readme.md in the root of your directory giving an overview of the provided content. Bonus points to you if the Readme file also contains a link to your API documentation page on http://developer.expediapartnercentral.com
 
 Contact Lodging Connectivity for additional questions, suggestions, and any issues.
