@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.expedia.lct.eps.sdk</groupId>
-    <artifactId>samples</artifactId>
+    <artifactId>product-samples</artifactId>
     <version>1</version>
 
     <properties>
