@@ -1,6 +1,6 @@
 package com.expedia.lct.eps.sdk.product;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-05-30T14:27:20.069-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-06-10T14:38:55.703-04:00")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).

@@ -41,10 +41,10 @@ import com.expedia.lct.eps.sdk.product.auth.HttpBasicAuth;
 import com.expedia.lct.eps.sdk.product.auth.ApiKeyAuth;
 import com.expedia.lct.eps.sdk.product.auth.OAuth;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-05-30T14:27:20.069-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-06-10T14:38:55.703-04:00")
 public class ApiClient {
   private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
-  private String basePath = "https://services.expediapartnercentral.com/product/";
+  private String basePath = "https://services.expediapartnercentral.com/products";
   private boolean debugging = false;
   private int connectionTimeout = 0;
 

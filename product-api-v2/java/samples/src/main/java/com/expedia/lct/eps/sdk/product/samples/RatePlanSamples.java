@@ -13,7 +13,7 @@ public class RatePlanSamples {
 
     public static final String PROPERTY_ID = "12933873";
     public static final String ROOM_TYPE_ID = "201357991";
-    public static final String RATE_PLAN_ID = "206651852";
+    public static final String RATE_PLAN_ID = "207620157";
 
     /*
      * Set credentials in API Client.
