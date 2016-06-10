@@ -12,7 +12,7 @@ import java.util.List;
 
 
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-05-30T14:27:20.069-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-06-10T14:38:55.703-04:00")
 public class BeddingOptionDTO   {
   
   private List<BedDTO> option = new ArrayList<BedDTO>();

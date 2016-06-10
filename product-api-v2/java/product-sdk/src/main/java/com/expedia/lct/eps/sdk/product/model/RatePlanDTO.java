@@ -15,7 +15,7 @@ import java.util.List;
 
 
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-05-30T14:27:20.069-04:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-06-10T14:38:55.703-04:00")
 public class RatePlanDTO   {
   
   private List<AdditionalGuestAmountDTO> additionalGuestAmounts = new ArrayList<AdditionalGuestAmountDTO>();
@@ -308,7 +308,7 @@ public class RatePlanDTO   {
     return this;
   }
   
-  @ApiModelProperty(example = "null", value = "Name of the rate plan, for information/identification purposes. Min 1, Max 40 characters. If not provided, defaults to the manageable rate plan partner code.")
+  @ApiModelProperty(example = "null", required = true, value = "Name of the rate plan, for information/identification purposes. Min 1, Max 40 characters. If not provided, defaults to the manageable rate plan partner code.")
   @JsonProperty("name")
   public String getName() {
     return name;

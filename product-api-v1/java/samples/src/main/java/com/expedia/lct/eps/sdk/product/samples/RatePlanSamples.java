@@ -14,7 +14,7 @@ public class RatePlanSamples {
     private static final String AUTH = "Basic RVFDdGVzdDEyOTMzODczOmNjNDdhbjQ2";
     private static final Integer PROPERTY_ID = 12933873;
     private static final Integer ROOM_TYPE_ID = 201357991;
-    private static final Integer RATE_PLAN_ID = 206651852;
+    private static final Integer RATE_PLAN_ID = 207620157;
 
     /*
      * Set credentials in API Client.
