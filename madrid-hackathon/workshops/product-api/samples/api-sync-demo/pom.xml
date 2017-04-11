@@ -20,7 +20,7 @@
     </properties>
 
     <modules>
-        <module>expedia-api-clients</module>
+        <module>product-api-client</module>
     </modules>
 
     <dependencyManagement>
