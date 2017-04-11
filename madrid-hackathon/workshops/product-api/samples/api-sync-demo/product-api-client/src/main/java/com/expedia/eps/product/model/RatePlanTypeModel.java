@@ -2,13 +2,11 @@ package com.expedia.eps.product.model;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@ApiModel
 @AllArgsConstructor
-public enum RatePlanTypeModel implements EnumModel {
+public enum RatePlanTypeModel {
 
     CORPORATE("Corporate"),
     PACKAGE("Package"),

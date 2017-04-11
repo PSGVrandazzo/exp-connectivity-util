@@ -2,13 +2,11 @@ package com.expedia.eps.product.model;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@ApiModel
 @AllArgsConstructor
-public enum CancelPolicyFeeModel implements EnumModel {
+public enum CancelPolicyFeeModel {
 
     NONE("None"),
     FIRST_NIGHT_ROOM_AND_TAX("1stNightRoomAndTax"),

@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
-public enum CutOffDayModel implements EnumModel {
+public enum CutOffDayModel {
 
     SAME_DAY("sameDay"),
     NEXT_DAY("nextDay");

@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
-public enum BusinessModel implements EnumModel {
+public enum BusinessModel {
 
     AGENCY_ONLY("HotelCollect"),
     MERCHANT_ONLY("ExpediaCollect");

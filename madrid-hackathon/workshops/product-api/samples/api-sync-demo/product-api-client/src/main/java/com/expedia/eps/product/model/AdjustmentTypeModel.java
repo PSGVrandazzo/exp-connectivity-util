@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
-public enum AdjustmentTypeModel implements EnumModel {
+public enum AdjustmentTypeModel {
 
     PERCENTAGE("Percentage"),
     AMOUNT("Amount");

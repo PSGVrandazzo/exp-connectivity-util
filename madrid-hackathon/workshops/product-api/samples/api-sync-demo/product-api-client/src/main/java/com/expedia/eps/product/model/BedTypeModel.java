@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
-public enum BedTypeModel implements EnumModel {
+public enum BedTypeModel {
 
     BunkBed("Bunk Bed"),
     FullBed("Full Bed"),
