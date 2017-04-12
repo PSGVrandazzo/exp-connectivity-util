@@ -21,6 +21,8 @@
 
     <modules>
         <module>product-api-client</module>
+        <module>property-api-client</module>
+        <module>product-synchronizer</module>
     </modules>
 
     <dependencyManagement>
@@ -61,6 +63,11 @@
                 <groupId>io.github.openfeign</groupId>
                 <artifactId>feign-okhttp</artifactId>
                 <version>${feign.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.kafka</groupId>
+                <artifactId>spring-kafka</artifactId>
+                <version>1.2.0.RELEASE</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
