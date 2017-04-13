@@ -1,5 +1,10 @@
 package com.expedia.eps.sync;
 
+import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
+import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -22,6 +27,13 @@ public class KafkaConfig {
 
     @Value("${kafka.servers.bootstrap}")
     private String bootstrapServers;
+
+    @Bean
+    public ObjectMapper objectMapper() {
+        return new ObjectMapper()
+            .configure(FAIL_ON_IGNORED_PROPERTIES, false)
+            .setSerializationInclusion(NON_NULL);
+    }
 
     @Bean
     public ProducerFactory<String, String> producerFactory() {

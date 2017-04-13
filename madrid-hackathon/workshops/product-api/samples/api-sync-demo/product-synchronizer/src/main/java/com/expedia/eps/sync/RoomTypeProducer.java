@@ -1,5 +1,9 @@
 package com.expedia.eps.sync;
 
+import com.expedia.eps.product.model.RoomType;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
@@ -13,13 +17,15 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Component
 @AllArgsConstructor(onConstructor = @__(@Autowired))
-public class RoomTypeProducer {
+class RoomTypeProducer {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
+    private final ObjectMapper mapper;
 
-    public void send(String topic, String message) {
+    void send(String topic, RoomType room) throws JsonProcessingException {
 
-        ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(topic, message);
+        final String message = mapper.writeValueAsString(room);
+        final ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(topic, message);
         future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
 
             @Override
