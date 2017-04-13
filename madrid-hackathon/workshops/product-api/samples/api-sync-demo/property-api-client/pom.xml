@@ -35,6 +35,10 @@
             <artifactId>feign-okhttp</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
@@ -43,5 +47,28 @@
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
     </dependencies>
+
+    <!--<build>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>io.swagger</groupId>-->
+                <!--<artifactId>swagger-codegen-maven-plugin</artifactId>-->
+                <!--<version>2.2.1</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<goals>-->
+                            <!--<goal>generate</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<inputSpec>https://services.expediapartnercentral.com/properties/v1/docs</inputSpec>-->
+                            <!--<language>spring</language>-->
+                            <!--<modelPackage>com.expedia.eps.product.swagger</modelPackage>-->
+                            <!--<output>${project.build.directory}</output>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
 
 </project>
