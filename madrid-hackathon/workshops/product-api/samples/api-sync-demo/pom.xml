@@ -20,8 +20,10 @@
     </properties>
 
     <modules>
-        <module>product-api-client</module>
+        <module>expedia-api-client-commons</module>
         <module>property-api-client</module>
+        <module>product-api-client</module>
+        <module>image-api-client</module>
         <module>product-synchronizer</module>
     </modules>
 

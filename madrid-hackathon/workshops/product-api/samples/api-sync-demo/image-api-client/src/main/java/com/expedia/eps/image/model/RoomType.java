@@ -1,4 +1,4 @@
-package com.expedia.eps.product;
+package com.expedia.eps.image.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExpediaError {
+public class RoomType {
 
-    private Integer code;
-    private String message;
+    private Long resourceId;
+    private Boolean roomTypeFeatured;
+
 }

@@ -1,4 +1,4 @@
-package com.expedia.eps.property;
+package com.expedia.eps;
 
 import java.util.List;
 
@@ -12,4 +12,3 @@ public class ExpediaResponse<T> {
     List<ExpediaError> errors;
 
 }
-

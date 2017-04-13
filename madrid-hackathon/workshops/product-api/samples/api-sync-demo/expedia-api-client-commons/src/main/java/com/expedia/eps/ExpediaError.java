@@ -1,4 +1,4 @@
-package com.expedia.eps.property;
+package com.expedia.eps;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,6 +13,4 @@ public class ExpediaError {
 
     private Integer code;
     private String message;
-
 }
-

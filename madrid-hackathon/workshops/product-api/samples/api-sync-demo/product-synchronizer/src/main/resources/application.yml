@@ -1,3 +1,12 @@
 kafka:
     servers:
         bootstrap: 127.0.0.1:9092
+
+expedia:
+    credentials:
+        username: EQCtest12933870
+        password: ew67nk33
+    imageApi:
+        url: https://services.expediapartnercentral.com
+    productApi:
+        url: https://services.expediapartnercentral.com/products

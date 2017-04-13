@@ -1,4 +1,4 @@
-package com.expedia.eps.product;
+package com.expedia.eps;
 
 import static java.lang.String.format;
 import static java.util.Base64.getEncoder;
@@ -13,7 +13,7 @@ public class ExpediaCredentials {
     private String username;
     private String password;
 
-    String asBasicAuthorizationHeader() {
+    public String asBasicAuthorizationHeader() {
         final String basicHeader = format("%s:%s", username, password);
         return format("Basic %s", new String(getEncoder().encode(basicHeader.getBytes())));
     }
