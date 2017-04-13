@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
-@Getter(onMethod = @__(@JsonValue))
 public enum StatusCodes {
 
     PROPERTYSAVED("PropertySaved"),
@@ -18,6 +17,7 @@ public enum StatusCodes {
     FINANCESETUPSUCCEEDED("FinanceSetupSucceeded"),
     PROPERTYDISABLED("PropertyDisabled");
 
+    @Getter(onMethod = @__(@JsonValue))
     private String value;
 
 }

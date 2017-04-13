@@ -6,12 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
-@Getter(onMethod = @__(@JsonValue))
 public enum PhoneNumberType {
     PHONE("Phone"),
     FAX("Fax"),
     MOBILE("Mobile");
 
+    @Getter(onMethod = @__(@JsonValue))
     private String value;
 
 }

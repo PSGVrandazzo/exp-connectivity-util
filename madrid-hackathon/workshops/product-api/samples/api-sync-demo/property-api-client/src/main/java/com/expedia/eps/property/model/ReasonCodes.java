@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
-@Getter(onMethod = @__(@JsonValue))
 public enum ReasonCodes {
 
     NONE("None"),
@@ -26,5 +25,6 @@ public enum ReasonCodes {
     OFACCHECKFAILED("OfacCheckFailed"),
     MISSINGBILLINGCURRENCYCODE("MissingBillingCurrencyCode");
 
+    @Getter(onMethod = @__(@JsonValue))
     private String value;
 }
