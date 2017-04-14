@@ -1,5 +1,12 @@
 version: '2'
 services:
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
   zookeeper:
     image: wurstmeister/zookeeper
     ports:
@@ -11,6 +18,6 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_CREATE_TOPICS: "PropertySync:1:3,RoomTypeSync:1:3,RatePlanSync:1:3"
+      KAFKA_CREATE_TOPICS: "PropertySync:1:1,RoomTypeSync:1:1,RatePlanSync:1:3,Onboarding:1:1"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
