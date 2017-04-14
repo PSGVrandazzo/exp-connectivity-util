@@ -13,9 +13,11 @@ import rx.Observable;
 public interface ImageApi {
 
     @Headers({
+        "Request-ID: {guid}",
         "Accept: application/json"
     })
     @RequestLine("GET /properties/{propertyId}/images")
-    Observable<ExpediaResponse<List<Image>>> getImages(@Param("propertyId") Integer propertyId);
+    Observable<ExpediaResponse<List<Image>>> getImages(@Param("guid") String requestId,
+                                                       @Param("propertyId") Integer propertyId);
 
 }

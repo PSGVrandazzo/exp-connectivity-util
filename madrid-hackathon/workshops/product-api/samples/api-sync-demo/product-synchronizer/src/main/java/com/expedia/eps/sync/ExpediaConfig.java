@@ -26,7 +26,7 @@ import feign.jackson.JacksonEncoder;
 import feign.slf4j.Slf4jLogger;
 
 @Configuration
-public class ApiClientConfig {
+public class ExpediaConfig {
 
     @Bean
     @ConditionalOnMissingBean

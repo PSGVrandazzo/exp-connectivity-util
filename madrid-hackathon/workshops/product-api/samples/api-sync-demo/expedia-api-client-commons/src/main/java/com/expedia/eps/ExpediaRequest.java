@@ -1,6 +1,6 @@
 package com.expedia.eps;
 
-import java.util.List;
+import static java.util.UUID.randomUUID;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,10 +11,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExpediaResponse<T> {
+public class ExpediaRequest<T> {
 
-    T entity;
+    private final String guid = randomUUID().toString();
 
-    List<ExpediaError> errors;
+    private Integer propertyId;
+
+    private T payload;
 
 }

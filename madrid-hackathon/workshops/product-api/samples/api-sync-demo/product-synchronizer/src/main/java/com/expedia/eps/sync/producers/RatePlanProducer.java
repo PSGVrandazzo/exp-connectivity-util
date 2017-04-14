@@ -1,7 +1,8 @@
-package com.expedia.eps.sync;
+package com.expedia.eps.sync.producers;
 
+import com.expedia.eps.ExpediaRequest;
+import com.expedia.eps.product.model.RatePlan;
 import com.expedia.eps.product.model.RoomType;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,15 +18,20 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Component
 @AllArgsConstructor(onConstructor = @__(@Autowired))
-class RoomTypeProducer {
+public class RatePlanProducer {
+
+    public static final String RATE_PLAN_TYPE_SYNC_TOPIC = "RatePlanSync";
 
     private final KafkaTemplate<String, String> kafkaTemplate;
     private final ObjectMapper mapper;
 
-    void send(String topic, RoomType room) throws JsonProcessingException {
+    /**
+     * Called whenever we need to create or update a rate plan on Expedia's side
+     */
+    public void send(ExpediaRequest<RatePlan> request) throws Exception {
 
-        final String message = mapper.writeValueAsString(room);
-        final ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(topic, message);
+        final String message = mapper.writeValueAsString(request);
+        final ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(RATE_PLAN_TYPE_SYNC_TOPIC, message);
         future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
 
             @Override

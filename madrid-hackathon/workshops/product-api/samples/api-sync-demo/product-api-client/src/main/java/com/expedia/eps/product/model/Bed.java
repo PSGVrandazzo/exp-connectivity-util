@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Bed {
 
-    private Long quantity;
+    private Integer quantity;
     private BedTypeModel type;
     private String size;
 
