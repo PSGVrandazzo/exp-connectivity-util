@@ -4,9 +4,12 @@ kafka:
 
 expedia:
     credentials:
-        username: EQCtest12933870
-        password: ew67nk33
+        username: EQCEVETP
+        password: 123456
     imageApi:
-        url: https://services.expediapartnercentral.com
+        url: https://int.services.expediapartnercentral.com
     productApi:
-        url: https://services.expediapartnercentral.com/products
+        url: https://int.services.expediapartnercentral.com/products
+    retry:
+        maxAttempts: 3
+        intervalInMillis: 3000

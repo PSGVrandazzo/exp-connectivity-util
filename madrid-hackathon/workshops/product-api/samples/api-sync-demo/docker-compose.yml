@@ -1,18 +1,11 @@
 version: '2'
 services:
-  postgres:
-    image: postgres
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: docker
-      POSTGRES_PASSWORD: docker
   zookeeper:
     image: wurstmeister/zookeeper
     ports:
       - "2181:2181"
   kafka:
-    build: .
+    build: kafka-scripts
     ports:
       - "9092:9092"
     environment:

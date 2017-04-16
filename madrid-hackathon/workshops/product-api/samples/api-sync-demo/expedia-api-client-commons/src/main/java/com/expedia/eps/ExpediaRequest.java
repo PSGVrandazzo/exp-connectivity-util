@@ -16,7 +16,7 @@ public class ExpediaRequest<T> {
     private final String guid = randomUUID().toString();
 
     private Integer propertyId;
-
+    private Integer roomTypeId;
     private T payload;
 
 }

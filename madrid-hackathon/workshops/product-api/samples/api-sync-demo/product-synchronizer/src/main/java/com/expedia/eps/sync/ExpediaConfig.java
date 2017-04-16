@@ -2,6 +2,7 @@ package com.expedia.eps.sync;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES;
+import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
 
 import com.expedia.eps.ExpediaAuthenticationInterceptor;
 import com.expedia.eps.ExpediaCredentials;
@@ -17,6 +18,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 import feign.Logger;
 import feign.hystrix.HystrixFeign;
@@ -31,13 +33,9 @@ public class ExpediaConfig {
     @Bean
     @ConditionalOnMissingBean
     public SetterFactory buildHystrixSetter() {
-        return (target, method) -> {
-            String groupKey = target.name();
-            String commandKey = method.getName();
-            return HystrixCommand.Setter
-                .withGroupKey(HystrixCommandGroupKey.Factory.asKey(groupKey))
-                .andCommandKey(HystrixCommandKey.Factory.asKey(commandKey));
-        };
+        return (target, method) -> HystrixCommand.Setter
+            .withGroupKey(HystrixCommandGroupKey.Factory.asKey(target.name()))
+            .andCommandKey(HystrixCommandKey.Factory.asKey(method.getName()));
     }
 
     @Bean
@@ -51,33 +49,21 @@ public class ExpediaConfig {
     }
 
     @Bean
-    public ImageApi imageApi(@Value("${expedia.imageApi.url}") String imageApiUrl,
-                             SetterFactory customHystrixSetter,
-                             ExpediaCredentials credentials) {
-        final ObjectMapper customObjectMapper = customObjectMapper();
-        return HystrixFeign.builder()
-            .setterFactory(customHystrixSetter)
-            .decoder(new JacksonDecoder(customObjectMapper))
-            .encoder(new JacksonEncoder(customObjectMapper))
-            .logger(new Slf4jLogger())
-            .logLevel(Logger.Level.BASIC)
-            .requestInterceptor(ExpediaAuthenticationInterceptor.builder().credentials(credentials).build())
-            .target(ImageApi.class, imageApiUrl);
+    @ConditionalOnMissingBean
+    public ExpediaAuthenticationInterceptor expediaAuthenticator(ExpediaCredentials credentials) {
+        return ExpediaAuthenticationInterceptor.builder()
+            .credentials(credentials)
+            .build();
     }
 
     @Bean
-    public ProductApi productApi(@Value("${expedia.productApi.url}") String productApiUrl,
-                                 SetterFactory customHystrixSetter,
-                                 ExpediaCredentials credentials) {
-        final ObjectMapper customObjectMapper = customObjectMapper();
-        return HystrixFeign.builder()
-            .setterFactory(customHystrixSetter)
-            .decoder(new JacksonDecoder(customObjectMapper))
-            .encoder(new JacksonEncoder(customObjectMapper))
-            .logger(new Slf4jLogger())
-            .logLevel(Logger.Level.BASIC)
-            .requestInterceptor(ExpediaAuthenticationInterceptor.builder().credentials(credentials).build())
-            .target(ProductApi.class, productApiUrl);
+    @Scope(SCOPE_PROTOTYPE) // one instance per API client
+    public ExpediaRetryer expediaRetryer(@Value("${expedia.retry.maxAttempts}") Integer maxRetryAttempts,
+                                         @Value("${expedia.retry.intervalInMillis}") Long intervalInMillis) {
+        return ExpediaRetryer.builder()
+            .maxAttempts(maxRetryAttempts)
+            .intervalInMillis(intervalInMillis)
+            .build();
     }
 
     private ObjectMapper customObjectMapper() {
@@ -85,5 +71,51 @@ public class ExpediaConfig {
             .configure(FAIL_ON_IGNORED_PROPERTIES, false)
             .registerModule(new JavaTimeModule())
             .setSerializationInclusion(NON_NULL);
+    }
+
+    @Bean
+    public JacksonEncoder jsonEncoder() {
+        return new JacksonEncoder(customObjectMapper());
+    }
+
+    @Bean
+    public JacksonDecoder jsonDecoder() {
+        return new JacksonDecoder(customObjectMapper());
+    }
+
+    @Bean
+    public ImageApi imageApi(@Value("${expedia.imageApi.url}") String imageApiUrl,
+                             SetterFactory customHystrixSetter,
+                             ExpediaAuthenticationInterceptor authenticationInterceptor,
+                             ExpediaRetryer expediaRetryer,
+                             JacksonEncoder jsonEncoder,
+                             JacksonDecoder jsonDecoder) {
+        return HystrixFeign.builder()
+            .setterFactory(customHystrixSetter)
+            .decoder(jsonDecoder)
+            .encoder(jsonEncoder)
+            .logger(new Slf4jLogger())
+            .logLevel(Logger.Level.FULL)
+            .retryer(expediaRetryer)
+            .requestInterceptor(authenticationInterceptor)
+            .target(ImageApi.class, imageApiUrl);
+    }
+
+    @Bean
+    public ProductApi productApi(@Value("${expedia.productApi.url}") String productApiUrl,
+                                 SetterFactory customHystrixSetter,
+                                 ExpediaAuthenticationInterceptor authenticationInterceptor,
+                                 ExpediaRetryer expediaRetryer,
+                                 JacksonEncoder jsonEncoder,
+                                 JacksonDecoder jsonDecoder) {
+        return HystrixFeign.builder()
+            .setterFactory(customHystrixSetter)
+            .decoder(jsonDecoder)
+            .encoder(jsonEncoder)
+            .logger(new Slf4jLogger())
+            .logLevel(Logger.Level.FULL)
+            .retryer(expediaRetryer)
+            .requestInterceptor(authenticationInterceptor)
+            .target(ProductApi.class, productApiUrl);
     }
 }
