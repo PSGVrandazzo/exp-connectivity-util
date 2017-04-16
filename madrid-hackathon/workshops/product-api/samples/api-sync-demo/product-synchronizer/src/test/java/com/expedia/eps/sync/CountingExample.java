@@ -21,7 +21,7 @@ import rx.Observable;
 @Slf4j
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class ProductApiTest {
+public class CountingExample {
 
     @Autowired
     private ProductApi productApi;
@@ -30,23 +30,19 @@ public class ProductApiTest {
     public void asynchronousCount() {
 
         final String requestId = randomUUID().toString();
-        final LongAdder propertyCount = new LongAdder();
-        final LongAdder roomTypeCount = new LongAdder();
+        final LongAdder properties = new LongAdder();
+        final LongAdder roomTypes = new LongAdder();
 
         productApi.getProperties(requestId)
             .map(ExpediaResponse::getEntity)
-            .doOnNext(list -> propertyCount.add(list.size()))
+            .doOnNext(list -> properties.add(list.size()))
             .flatMap(list -> Observable.from(list).subscribeOn(io()))
-            .doOnNext(property -> log.info("Counting rooms for property '{}'", property.getName()))
             .flatMap(property -> productApi.getRoomTypes(requestId, property.getResourceId()).subscribeOn(io()))
-            .map(ExpediaResponse::getEntity)
-            .doOnNext(list -> roomTypeCount.add(list.size()))
-            .doOnError(e -> fail("Could not reach Product API"))
             .toBlocking()
-            .last();
-
-        log.info("There are {} properties and {} room types registered on this Expedia account",
-                 propertyCount.intValue(),
-                 roomTypeCount.intValue());
+            .subscribe(response -> roomTypes.add(response.getEntity().size()),
+                       error -> fail("Unable to contact Expedia"),
+                       () -> log.info("Found {} properties and {} active room types",
+                                      properties.intValue(),
+                                      roomTypes.intValue()));
     }
 }

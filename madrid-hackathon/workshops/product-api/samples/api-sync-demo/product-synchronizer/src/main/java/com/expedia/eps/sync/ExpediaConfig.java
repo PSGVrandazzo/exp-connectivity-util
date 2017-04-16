@@ -13,6 +13,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
 import com.netflix.hystrix.HystrixCommandKey;
+import com.netflix.hystrix.HystrixThreadPoolKey;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -34,8 +35,9 @@ public class ExpediaConfig {
     @ConditionalOnMissingBean
     public SetterFactory buildHystrixSetter() {
         return (target, method) -> HystrixCommand.Setter
-            .withGroupKey(HystrixCommandGroupKey.Factory.asKey(target.name()))
-            .andCommandKey(HystrixCommandKey.Factory.asKey(method.getName()));
+            .withGroupKey(HystrixCommandGroupKey.Factory.asKey(target.type().getSimpleName()))
+            .andCommandKey(HystrixCommandKey.Factory.asKey(method.getName()))
+            .andThreadPoolKey(HystrixThreadPoolKey.Factory.asKey(target.type().getSimpleName()));
     }
 
     @Bean
@@ -94,8 +96,8 @@ public class ExpediaConfig {
             .setterFactory(customHystrixSetter)
             .decoder(jsonDecoder)
             .encoder(jsonEncoder)
-            .logger(new Slf4jLogger())
-            .logLevel(Logger.Level.FULL)
+            .logger(new Slf4jLogger(ImageApi.class))
+            .logLevel(Logger.Level.BASIC)
             .retryer(expediaRetryer)
             .requestInterceptor(authenticationInterceptor)
             .target(ImageApi.class, imageApiUrl);
@@ -112,8 +114,8 @@ public class ExpediaConfig {
             .setterFactory(customHystrixSetter)
             .decoder(jsonDecoder)
             .encoder(jsonEncoder)
-            .logger(new Slf4jLogger())
-            .logLevel(Logger.Level.FULL)
+            .logger(new Slf4jLogger(ProductApi.class))
+            .logLevel(Logger.Level.BASIC)
             .retryer(expediaRetryer)
             .requestInterceptor(authenticationInterceptor)
             .target(ProductApi.class, productApiUrl);

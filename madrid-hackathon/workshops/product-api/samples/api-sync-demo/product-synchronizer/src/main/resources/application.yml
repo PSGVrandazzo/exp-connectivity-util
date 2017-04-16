@@ -13,3 +13,10 @@ expedia:
     retry:
         maxAttempts: 3
         intervalInMillis: 3000
+
+logging:
+  level:
+    com.expedia: TRACE
+    org.apache.kafka: WARN
+    org.springframework: WARN
+
