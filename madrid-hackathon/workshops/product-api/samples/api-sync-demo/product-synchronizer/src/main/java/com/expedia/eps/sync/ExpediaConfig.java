@@ -2,6 +2,7 @@ package com.expedia.eps.sync;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES;
+import static java.util.Optional.ofNullable;
 import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
 
 import com.expedia.eps.ExpediaAuthenticationInterceptor;
@@ -63,8 +64,8 @@ public class ExpediaConfig {
     public ExpediaRetryer expediaRetryer(@Value("${expedia.retry.maxAttempts}") Integer maxRetryAttempts,
                                          @Value("${expedia.retry.intervalInMillis}") Long intervalInMillis) {
         return ExpediaRetryer.builder()
-            .maxAttempts(maxRetryAttempts)
-            .intervalInMillis(intervalInMillis)
+            .maxAttempts(ofNullable(maxRetryAttempts).orElse(3))
+            .intervalInMillis(ofNullable(intervalInMillis).orElse(3000L))
             .build();
     }
 

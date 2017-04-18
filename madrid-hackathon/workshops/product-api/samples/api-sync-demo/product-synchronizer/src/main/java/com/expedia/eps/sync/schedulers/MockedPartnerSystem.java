@@ -27,7 +27,7 @@ public class MockedPartnerSystem {
 
     private final RoomTypeProducer roomTypeProducer;
 
-    @Scheduled(cron = EVERY_MINUTE)
+//    @Scheduled(cron = EVERY_MINUTE)
     public void scheduledTask() {
         try {
             final Integer propertyId = 888793;
