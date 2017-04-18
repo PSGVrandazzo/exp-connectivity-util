@@ -17,7 +17,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.StopWatch;
 
 import java.util.List;
-import java.util.Timer;
 import java.util.concurrent.atomic.LongAdder;
 
 import lombok.extern.slf4j.Slf4j;
@@ -57,15 +56,14 @@ public class CountingExample {
 
     private Observable<Property> collectProperties(List<Property> results) {
         propertyCount.add(results.size());
-        return Observable.from(results)
-            .subscribeOn(io());
+        return Observable.from(results);
     }
 
     private Observable<List<RatePlan>> collectRoomTypesAndRatePlans(Property property) {
         return productApi.getRoomTypes(randomUUID().toString(), property.getResourceId())
-            .subscribeOn(io())
             .map(ExpediaResponse::getEntity)
-            .flatMap(rooms -> this.collectRatePlans(property, rooms));
+            .flatMap(rooms -> this.collectRatePlans(property, rooms))
+            .subscribeOn(io());
     }
 
     private Observable<List<RatePlan>> collectRatePlans(Property property, List<RoomType> rooms) {
@@ -75,6 +73,7 @@ public class CountingExample {
             .flatMap(room -> productApi.getRatePlans(randomUUID().toString(),
                                                      property.getResourceId(),
                                                      room.getResourceId()))
+            .subscribeOn(io())
             .map(ExpediaResponse::getEntity)
             .doOnNext(ratePlans -> ratePlanCount.add(ratePlans.size()));
     }

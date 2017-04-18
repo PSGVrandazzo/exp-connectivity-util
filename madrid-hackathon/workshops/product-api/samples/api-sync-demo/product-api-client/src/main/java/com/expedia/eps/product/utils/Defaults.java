@@ -4,6 +4,7 @@ import static com.expedia.eps.product.model.BedTypeModel.KingBed;
 import static com.expedia.eps.product.model.BedTypeModel.QueenBed;
 import static com.expedia.eps.product.model.RoomTypeAgeCategory.CategoryModel.ADULT;
 import static com.expedia.eps.product.model.RoomTypeAgeCategory.CategoryModel.CHILD_AGE_A;
+import static com.expedia.eps.product.model.RoomTypeAgeCategory.CategoryModel.INFANT;
 import static com.expedia.eps.product.model.SmokingPreferenceModel.NON_SMOKING;
 import static com.expedia.eps.product.model.SmokingPreferenceModel.SMOKING;
 
@@ -36,12 +37,18 @@ public class Defaults {
         ageCategories.add(
             RoomTypeAgeCategory.builder()
                 .category(CHILD_AGE_A)
-                .minAge(0)
+                .minAge(12)
+                .build());
+        ageCategories.add(
+            RoomTypeAgeCategory.builder()
+                .category(INFANT)
+                .minAge(1)
                 .build());
 
         final Occupancy occupancy = Occupancy.builder()
             .adults(3)
-            .children(1)
+            .children(2)
+            .total(4)
             .build();
 
         final List<Bed> beds = new ArrayList<>();
