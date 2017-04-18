@@ -23,10 +23,10 @@ public class Property {
     private String latitude;
     private String longitude;
 
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm'Z'")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private LocalDateTime createdUtc;
 
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm'Z'")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private LocalDateTime modifiedUtc;
 
     private String providerPropertyUrl;

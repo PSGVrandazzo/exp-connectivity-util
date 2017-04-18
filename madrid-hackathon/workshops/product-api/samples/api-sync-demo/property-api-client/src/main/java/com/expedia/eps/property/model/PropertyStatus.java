@@ -21,7 +21,7 @@ public class PropertyStatus {
     private Integer expediaId;
     private StatusCodes code;
 
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm'Z'")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private LocalDateTime timestampUtc = null;
 
     private List<ReasonCodes> reasonCodes;

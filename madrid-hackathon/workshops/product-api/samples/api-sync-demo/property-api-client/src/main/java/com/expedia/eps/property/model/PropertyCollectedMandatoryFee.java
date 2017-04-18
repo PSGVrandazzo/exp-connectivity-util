@@ -20,10 +20,10 @@ public class PropertyCollectedMandatoryFee {
     private String duration;
     private Double value;
 
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm'Z'")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private LocalDateTime startDate;
 
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm'Z'")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private LocalDateTime endDate;
 
 }

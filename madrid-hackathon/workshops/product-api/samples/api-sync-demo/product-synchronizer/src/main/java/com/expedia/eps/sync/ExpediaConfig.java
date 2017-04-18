@@ -135,7 +135,7 @@ public class ExpediaConfig {
                 .decoder(jsonDecoder)
                 .encoder(jsonEncoder)
                 .logger(new Slf4jLogger(PropertyApi.class))
-                .logLevel(Logger.Level.BASIC)
+                .logLevel(Logger.Level.FULL)
                 .retryer(expediaRetryer)
                 .requestInterceptor(authenticationInterceptor)
                 .target(PropertyApi.class, propertyApiUrl);
