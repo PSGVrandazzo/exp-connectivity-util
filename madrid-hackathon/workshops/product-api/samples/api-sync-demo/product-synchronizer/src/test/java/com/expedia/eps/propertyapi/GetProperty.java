@@ -33,9 +33,8 @@ public class GetProperty
 
         final String requestId = randomUUID().toString();
 
-        Observable<List<Property>> map = propertyApi.getProperty(requestId, "1000", "11275").single().map(ExpediaResponse::getEntity);
+        Observable<List<Property>> map = propertyApi.getPropertyStatus(requestId, "1000", "11275").single().map(ExpediaResponse::getEntity);
 
-        System.out.println("HelloWorld");
 
     }
 }
