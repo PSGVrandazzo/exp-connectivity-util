@@ -1,4 +1,4 @@
-package com.expedia.eps.propertyapi;
+package com.expedia.eps.sync;
 
 import static java.util.UUID.randomUUID;
 import static org.assertj.core.api.Fail.fail;
@@ -33,7 +33,7 @@ public class GetProperty
 
         final String requestId = randomUUID().toString();
 
-        Observable<List<Property>> map = propertyApi.getPropertyStatus(requestId, "1000", "11275").single().map(ExpediaResponse::getEntity);
+        Observable<List<Property>> map = propertyApi.getPropertyStatus(requestId, "1000", "11275").map(ExpediaResponse::getEntity);
 
 
     }
