@@ -9,6 +9,7 @@ import com.expedia.eps.ExpediaAuthenticationInterceptor;
 import com.expedia.eps.ExpediaCredentials;
 import com.expedia.eps.image.ImageApi;
 import com.expedia.eps.product.ProductApi;
+import com.expedia.eps.property.PropertyApi;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.netflix.hystrix.HystrixCommand;
@@ -120,5 +121,23 @@ public class ExpediaConfig {
             .retryer(expediaRetryer)
             .requestInterceptor(authenticationInterceptor)
             .target(ProductApi.class, productApiUrl);
+    }
+
+    @Bean
+    public PropertyApi propertyApi(@Value("${expedia.propertyApi.url}") String propertyApiUrl,
+                                   SetterFactory customHystrixSetter,
+                                   ExpediaAuthenticationInterceptor authenticationInterceptor,
+                                   ExpediaRetryer expediaRetryer,
+                                   JacksonEncoder jsonEncoder,
+                                   JacksonDecoder jsonDecoder) {
+        return HystrixFeign.builder()
+                .setterFactory(customHystrixSetter)
+                .decoder(jsonDecoder)
+                .encoder(jsonEncoder)
+                .logger(new Slf4jLogger(PropertyApi.class))
+                .logLevel(Logger.Level.BASIC)
+                .retryer(expediaRetryer)
+                .requestInterceptor(authenticationInterceptor)
+                .target(PropertyApi.class, propertyApiUrl);
     }
 }
