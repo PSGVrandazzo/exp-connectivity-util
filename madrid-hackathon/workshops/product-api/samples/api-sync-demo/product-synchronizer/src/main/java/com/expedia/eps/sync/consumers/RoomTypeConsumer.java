@@ -41,7 +41,7 @@ public class RoomTypeConsumer {
         // Create or Update?
         if (isNull(room.getResourceId())) {
             productApi.createRoomType(request.getGuid(), request.getPropertyId(), room).toBlocking().subscribe(
-                response -> log.info("Room created on Expedia side"),
+                response -> log.info("Room created on Expedia side: {}", response.getEntity().getResourceId()),
                 error -> log.error("Could not create room type. Error processing Expedia Request ID {}",
                                    request.getGuid(), error),
                 () -> log.info("Done synchronizing room")

@@ -16,7 +16,7 @@ expedia:
 
 logging:
   level:
-    com.expedia: TRACE
-    org.apache.kafka: WARN
-    org.springframework: WARN
+    com.expedia: DEBUG
+    org.apache.kafka: INFO
+    org.springframework: INFO
 

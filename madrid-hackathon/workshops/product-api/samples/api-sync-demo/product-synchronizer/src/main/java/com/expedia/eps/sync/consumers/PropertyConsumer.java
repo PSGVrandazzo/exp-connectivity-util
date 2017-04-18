@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PropertyConsumer {
 
-    private static final TypeReference<ExpediaRequest<Property>> ROOM_TYPE_MSG =
+    private static final TypeReference<ExpediaRequest<Property>> PROPERTY_MSG =
         new TypeReference<ExpediaRequest<Property>>() {
         };
 
