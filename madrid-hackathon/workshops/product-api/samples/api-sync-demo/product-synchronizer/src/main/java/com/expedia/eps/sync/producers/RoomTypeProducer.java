@@ -12,6 +12,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
+import java.util.concurrent.CountDownLatch;
+
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,7 +30,7 @@ public class RoomTypeProducer {
     /**
      * Called whenever we need to create or update a room type on Expedia's side
      */
-    public void send(ExpediaRequest<RoomType> request) throws Exception {
+    public void send(CountDownLatch latch, ExpediaRequest<RoomType> request) throws Exception {
 
         final String message = mapper.writeValueAsString(request);
         final ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(ROOM_TYPE_SYNC_TOPIC, message);
@@ -37,11 +39,13 @@ public class RoomTypeProducer {
             @Override
             public void onSuccess(SendResult<String, String> result) {
                 log.info("sent message='{}' with offset={}", message, result.getRecordMetadata().offset());
+                latch.countDown();
             }
 
             @Override
             public void onFailure(Throwable ex) {
                 log.error("unable to send message='{}'", message, ex);
+                latch.countDown();
             }
         });
     }
