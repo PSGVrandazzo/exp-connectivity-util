@@ -27,12 +27,12 @@ import rx.Observable;
 @RunWith(SpringRunner.class)
 public class CountingExample {
 
-    @Autowired
-    private ProductApi productApi;
-
     private final LongAdder propertyCount = new LongAdder();
     private final LongAdder roomTypeCount = new LongAdder();
     private final LongAdder ratePlanCount = new LongAdder();
+
+    @Autowired
+    private ProductApi productApi;
 
     @Test
     public void asynchronousCount() {
@@ -56,14 +56,15 @@ public class CountingExample {
 
     private Observable<Property> collectProperties(List<Property> results) {
         propertyCount.add(results.size());
-        return Observable.from(results);
+        return Observable.from(results)
+            .subscribeOn(io());
     }
 
     private Observable<List<RatePlan>> collectRoomTypesAndRatePlans(Property property) {
         return productApi.getRoomTypes(randomUUID().toString(), property.getResourceId())
+            .subscribeOn(io())
             .map(ExpediaResponse::getEntity)
-            .flatMap(rooms -> this.collectRatePlans(property, rooms))
-            .subscribeOn(io());
+            .flatMap(rooms -> this.collectRatePlans(property, rooms));
     }
 
     private Observable<List<RatePlan>> collectRatePlans(Property property, List<RoomType> rooms) {
@@ -73,7 +74,6 @@ public class CountingExample {
             .flatMap(room -> productApi.getRatePlans(randomUUID().toString(),
                                                      property.getResourceId(),
                                                      room.getResourceId()))
-            .subscribeOn(io())
             .map(ExpediaResponse::getEntity)
             .doOnNext(ratePlans -> ratePlanCount.add(ratePlans.size()));
     }

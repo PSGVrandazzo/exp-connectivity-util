@@ -50,11 +50,11 @@ mvn clean install
 java -jar product-synchronizer/target/product-synchronizer.jar
 ```
 
-This will bring up all registered Kafka producers/consumers.
+This will start up the Spring Boot application, along with the registered consumers and producers. Alternatively, you can also run the [Application](product-synchronizer/src/main/java/com/expedia/eps/sync/Application.java) class from your IDE of choice.
 
 ### Using your own Expedia Credentials
 
-The clients can be configured through the Spring Boot's `application.yml` file provided with the `product-synchronizer` module.
+The clients can be configured through the Spring Boot's [application.yml](product-synchronizer/src/main/resources/application.yml) file provided with the `product-synchronizer` module.
 
 An example using the test account from the developer portal:
 
@@ -72,3 +72,11 @@ expedia:
         maxAttempts: 3
         intervalInMillis: 3000
 ```
+
+### Importing Postman Collection for Product API
+ 
+ We are also supplying a [Postman](https://www.getpostman.com/) collection with the most popular endpoints for Product API, in order to speed up testing and development during the Hackathon. Postman has a convenient feature that allows you generate client code in several languages/tools, to get you up and running in no time.
+ 
+ The file is available [here](product-api.postman).
+ 
+ 
