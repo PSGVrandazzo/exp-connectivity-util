@@ -3,6 +3,7 @@ package com.expedia.eps.property.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -24,10 +25,10 @@ public class Property {
     private String longitude;
 
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-    private LocalDateTime createdUtc;
+    private Object createdUtc;
 
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-    private LocalDateTime modifiedUtc;
+    private Object modifiedUtc;
 
     private String providerPropertyUrl;
     private StructureType structureType;

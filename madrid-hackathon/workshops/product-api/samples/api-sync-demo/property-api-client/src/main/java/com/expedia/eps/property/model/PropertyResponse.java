@@ -13,9 +13,5 @@ import java.util.List;
 @AllArgsConstructor
 public class PropertyResponse
 {
-    private List<ValidationError> validationErrors;
-    private List<Property> properties;
-
-    ///TODO: This should be serializing as a dictionary, not an object
-    private Statistics statistics;
+    private Object property;
 }
