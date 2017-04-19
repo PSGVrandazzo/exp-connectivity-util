@@ -18,25 +18,6 @@ You also get the Swagger integration automatically, you simply need to provide t
 - Feign/Ribbon/Hystrix for REST endpoint mapping
 - Swagger 2.0 UI
 
-## Details
-
-![Overview](https://g.gravizo.com/g?;
-@startuml;
-actor Client;
-participant ServiceController;
-participant HotelReviewService;
-participant HotelReviewAPI <<hackathon portal>>;
-Client -> ServiceController : <<Request>>;
-ServiceController -> HotelReviewService: <<text to analyze>>;
-HotelReviewService -> HotelReviewAPI: <<Feign - maps request>>;
-HotelReviewAPI -> HotelReviewService: <<Feign - maps response>>;
-HotelReviewService -> ServiceController: <<result of analysis>>;
-ServiceController -> Client;
-@enduml
-)
-
-The requests are served by the ServiceController class. It's a Spring RESTController. The controller than handle over the request to the HotelReviewService which is a simple Feign interface that handles the REST communication with the target service.
-
 # Usage
 
 ## 1. Clone the repository
