@@ -10,7 +10,6 @@ import java.util.List;
 import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
-import org.springframework.http.ResponseEntity;
 import rx.Observable;
 
 public interface PropertyApi {

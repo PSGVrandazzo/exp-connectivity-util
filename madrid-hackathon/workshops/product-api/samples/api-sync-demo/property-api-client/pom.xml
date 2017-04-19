@@ -22,11 +22,6 @@
             <artifactId>expedia-api-client-commons</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>4.2.5.RELEASE</version>
-        </dependency>
     </dependencies>
 
 </project>

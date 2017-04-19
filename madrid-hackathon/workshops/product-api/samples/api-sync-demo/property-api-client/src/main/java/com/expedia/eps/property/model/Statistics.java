@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Statistics
 {
+    ///TODO: This should be serializing as a dictionary, not an object
     @JsonProperty("Test.Property.New")
     private int testPropertyNew;
 }
