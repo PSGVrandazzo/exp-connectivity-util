@@ -9,7 +9,7 @@ expedia:
     imageApi:
         url: https://services.expediapartnercentral.com
     productApi:
-        url: https://int.services.expediapartnercentral.com/products
+        url: https://services.expediapartnercentral.com/products
     propertyApi:
         url: http://cheieqsctapi101
     retry:
