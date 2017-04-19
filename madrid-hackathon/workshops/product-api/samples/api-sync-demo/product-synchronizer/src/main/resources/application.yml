@@ -1,0 +1,24 @@
+kafka:
+    servers:
+        bootstrap: 127.0.0.1:9092
+
+expedia:
+    credentials:
+        username: EQCtest12933870
+        password: ew67nk33
+    imageApi:
+        url: https://services.expediapartnercentral.com
+    productApi:
+        url: https://services.expediapartnercentral.com/products
+    propertyApi:
+        url: http://cheieqsctapi101
+    retry:
+        maxAttempts: 3
+        intervalInMillis: 3000
+
+logging:
+  level:
+    com.expedia: DEBUG
+    org.apache.kafka: INFO
+    org.springframework: INFO
+

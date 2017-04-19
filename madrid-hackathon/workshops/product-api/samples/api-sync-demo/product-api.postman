@@ -1,0 +1,431 @@
+{
+	"variables": [],
+	"info": {
+		"name": "EPS Product API",
+		"_postman_id": "a6d88fd7-9da2-4112-0e6b-0f7927efca12",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /properties/",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "EQCtest12933870",
+						"password": "ew67nk33",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://services.expediapartnercentral.com/products/properties",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic RVFDdGVzdDEyOTMzODcwOmV3NjduazMz",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.expedia.eps.product-v2+json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET /properties/{id}",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "EQCtest12933870",
+						"password": "ew67nk33",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://services.expediapartnercentral.com/products/properties/3856296",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic RVFDdGVzdDEyOTMzODcwOmV3NjduazMz",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.expedia.eps.product-v2+json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET /properties/{id}/roomTypes",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "EQCtest12933870",
+						"password": "ew67nk33",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://services.expediapartnercentral.com/products/properties/3856296/roomTypes",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic RVFDdGVzdDEyOTMzODcwOmV3NjduazMz",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.expedia.eps.product-v2+json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET /properties/{id}/roomTypes/{id}",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "EQCtest12933870",
+						"password": "ew67nk33",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://services.expediapartnercentral.com/products/properties/3856296/roomTypes/200001552",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic RVFDdGVzdDEyOTMzODcwOmV3NjduazMz",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.expedia.eps.product-v2+json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET /properties/{id}/roomTypes/{id}/ratePlans",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "EQCtest12933870",
+						"password": "ew67nk33",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://services.expediapartnercentral.com/products/properties/3856296/roomTypes/200001552/ratePlans",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic RVFDdGVzdDEyOTMzODcwOmV3NjduazMz",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.expedia.eps.product-v2+json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET /properties/{id}/roomTypes/{id}/ratePlans/{id}",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "EQCtest12933870",
+						"password": "ew67nk33",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://services.expediapartnercentral.com/products/properties/3856296/roomTypes/200001552/ratePlans/200007569",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic RVFDdGVzdDEyOTMzODcwOmV3NjduazMz",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.expedia.eps.product-v2+json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST /properties/{id}/roomTypes",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "EQCtest12933870",
+						"password": "ew67nk33",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://services.expediapartnercentral.com/products/properties/3856296/roomTypes",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic RVFDdGVzdDEyOTMzODcwOmV3NjduazMz",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.expedia.eps.product-v2+json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.expedia.eps.product-v2+json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"partnerCode\": \"New room type\",\n    \"name\": {\n      \"attributes\": {\n        \"typeOfRoom\": \"Room\",\n        \"roomClass\": \"Classic\",\n        \"includeBedType\": true,\n        \"view\": \"Mountain View\"\n      },\n      \"value\": \"Classic Room, 1 King Bed, Mountain View\"\n    },\n    \"status\": \"Active\",\n    \"ageCategories\": [\n      {\n        \"category\": \"Adult\",\n        \"minAge\": 12\n      },\n      {\n        \"category\": \"ChildAgeA\",\n        \"minAge\": 7\n      },\n      {\n        \"category\": \"Infant\",\n        \"minAge\": 0\n      }\n    ],\n    \"maxOccupancy\": {\n      \"total\": 2,\n      \"adults\": 2,\n      \"children\": 1\n    },\n    \"standardBedding\": [\n      {\n        \"option\": [\n          {\n            \"quantity\": 1,\n            \"type\": \"King Bed\",\n            \"size\": \"King\"\n          }\n        ]\n      }\n    ],\n    \"extraBedding\": [\n      {\n        \"quantity\": 1,\n        \"type\": \"Crib\",\n        \"size\": \"Crib\",\n        \"surcharge\": {\n          \"type\": \"Free\"\n        }\n      }\n    ],\n    \"smokingPreferences\": [\n      \"Smoking\",\n      \"Non-Smoking\"\n    ],\n    \"roomSize\": {\n      \"squareFeet\": 495,\n      \"squareMeters\": 46\n    },\n    \"views\": [\n      \"Lake View\"\n    ],\n    \"wheelchairAccessibility\": true\n  }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST /properties/{id}/roomTypes/{id}/ratePlans",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "EQCtest12933870",
+						"password": "ew67nk33",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://services.expediapartnercentral.com/products/properties/3856296/roomTypes/200001552/ratePlans",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic RVFDdGVzdDEyOTMzODcwOmV3NjduazMz",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.expedia.eps.product-v2+json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.expedia.eps.product-v2+json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Test Rate Plan\",\n    \"rateAcquisitionType\": \"SellLAR\",\n    \"distributionRules\": [\n      {\n        \"expediaId\": \"200007569\",\n        \"partnerCode\": \"HB\",\n        \"distributionModel\": \"ExpediaCollect\",\n        \"manageable\": false,\n        \"compensation\": {\n          \"percent\": 0.15,\n          \"minAmount\": 0\n        }\n      },\n      {\n        \"expediaId\": \"200007569A\",\n        \"partnerCode\": \"HB\",\n        \"distributionModel\": \"HotelCollect\",\n        \"manageable\": true,\n        \"compensation\": {\n          \"percent\": 0.125\n        }\n      }\n    ],\n    \"status\": \"Active\",\n    \"type\": \"Standalone\",\n    \"pricingModel\": \"PerDayPricing\",\n    \"occupantsForBaseRate\": 2,\n    \"taxInclusive\": false,\n    \"depositRequired\": false,\n    \"creationDateTime\": \"2010-07-16T17:51:40Z\",\n    \"lastUpdateDateTime\": \"2017-02-13T05:53:52Z\",\n    \"cancelPolicy\": {\n      \"defaultPenalties\": [\n        {\n          \"deadline\": 0,\n          \"perStayFee\": \"1stNightRoomAndTax\",\n          \"amount\": 0\n        },\n        {\n          \"deadline\": 24,\n          \"perStayFee\": \"None\",\n          \"amount\": 0\n        }\n      ]\n    },\n    \"additionalGuestAmounts\": [\n      {\n        \"dateStart\": \"2017-01-01\",\n        \"dateEnd\": \"2079-06-06\",\n        \"ageCategory\": \"Adult\",\n        \"amount\": 3465\n      },\n      {\n        \"dateStart\": \"2017-01-01\",\n        \"dateEnd\": \"2079-06-06\",\n        \"ageCategory\": \"ChildAgeA\",\n        \"amount\": 2079\n      }\n    ],\n    \"valueAddInclusions\": [\n      \"Free Parking\",\n      \"Free Wireless Internet\",\n      \"Half Board\"\n    ],\n    \"minLOSDefault\": 1,\n    \"maxLOSDefault\": 28,\n    \"minAdvBookDays\": 0,\n    \"maxAdvBookDays\": 500,\n    \"bookDateStart\": \"1900-01-01\",\n    \"bookDateEnd\": \"2079-06-06\",\n    \"travelDateStart\": \"1901-01-01\",\n    \"travelDateEnd\": \"2079-06-06\",\n    \"mobileOnly\": false\n  }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /properties/{id}/roomTypes/{id}",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "EQCtest12933870",
+						"password": "ew67nk33",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://services.expediapartnercentral.com/products/properties/3856296/roomTypes/200001552",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic RVFDdGVzdDEyOTMzODcwOmV3NjduazMz",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.expedia.eps.product-v2+json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.expedia.eps.product-v2+json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"resourceId\": 200001552,\n    \"partnerCode\": \"Palace floor mountain view two queen\",\n    \"name\": {\n      \"attributes\": {\n        \"typeOfRoom\": \"Room\",\n        \"roomClass\": \"Classic\",\n        \"includeBedType\": true,\n        \"view\": \"Mountain View\"\n      },\n      \"value\": \"Classic Room, 1 King Bed, Mountain View\"\n    },\n    \"status\": \"Active\",\n    \"ageCategories\": [\n      {\n        \"category\": \"Adult\",\n        \"minAge\": 12\n      },\n      {\n        \"category\": \"ChildAgeA\",\n        \"minAge\": 7\n      },\n      {\n        \"category\": \"Infant\",\n        \"minAge\": 0\n      }\n    ],\n    \"maxOccupancy\": {\n      \"total\": 2,\n      \"adults\": 2,\n      \"children\": 1\n    },\n    \"standardBedding\": [\n      {\n        \"option\": [\n          {\n            \"quantity\": 1,\n            \"type\": \"King Bed\",\n            \"size\": \"King\"\n          }\n        ]\n      }\n    ],\n    \"extraBedding\": [\n      {\n        \"quantity\": 1,\n        \"type\": \"Crib\",\n        \"size\": \"Crib\",\n        \"surcharge\": {\n          \"type\": \"Free\"\n        }\n      }\n    ],\n    \"smokingPreferences\": [\n      \"Smoking\",\n      \"Non-Smoking\"\n    ],\n    \"roomSize\": {\n      \"squareFeet\": 495,\n      \"squareMeters\": 46\n    },\n    \"views\": [\n      \"Lake View\"\n    ],\n    \"wheelchairAccessibility\": false\n  }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /properties/{id}/roomTypes/{id}/ratePlans/{id}",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "EQCtest12933870",
+						"password": "ew67nk33",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://services.expediapartnercentral.com/products/properties/3856296/roomTypes/200001552/ratePlans/200007569",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic RVFDdGVzdDEyOTMzODcwOmV3NjduazMz",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.expedia.eps.product-v2+json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.expedia.eps.product-v2+json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"resourceId\": 200007569,\n    \"name\": \"Free Parking and Internet\",\n    \"rateAcquisitionType\": \"SellLAR\",\n    \"distributionRules\": [\n      {\n        \"expediaId\": \"200007569\",\n        \"partnerCode\": \"HB\",\n        \"distributionModel\": \"ExpediaCollect\",\n        \"manageable\": false,\n        \"compensation\": {\n          \"percent\": 0.15,\n          \"minAmount\": 0\n        }\n      },\n      {\n        \"expediaId\": \"200007569A\",\n        \"partnerCode\": \"HB\",\n        \"distributionModel\": \"HotelCollect\",\n        \"manageable\": true,\n        \"compensation\": {\n          \"percent\": 0.125\n        }\n      }\n    ],\n    \"status\": \"Active\",\n    \"type\": \"Standalone\",\n    \"pricingModel\": \"PerDayPricing\",\n    \"occupantsForBaseRate\": 2,\n    \"taxInclusive\": false,\n    \"depositRequired\": false,\n    \"creationDateTime\": \"2010-07-16T17:51:40Z\",\n    \"lastUpdateDateTime\": \"2017-04-19T18:59:52Z\",\n    \"cancelPolicy\": {\n      \"defaultPenalties\": [\n        {\n          \"deadline\": 0,\n          \"perStayFee\": \"1stNightRoomAndTax\",\n          \"amount\": 0\n        },\n        {\n          \"deadline\": 24,\n          \"perStayFee\": \"None\",\n          \"amount\": 0\n        }\n      ]\n    },\n    \"additionalGuestAmounts\": [\n      {\n        \"dateStart\": \"2017-01-01\",\n        \"dateEnd\": \"2079-06-06\",\n        \"ageCategory\": \"Adult\",\n        \"amount\": 3465\n      },\n      {\n        \"dateStart\": \"2017-01-01\",\n        \"dateEnd\": \"2079-06-06\",\n        \"ageCategory\": \"ChildAgeA\",\n        \"amount\": 2079\n      }\n    ],\n    \"valueAddInclusions\": [\n      \"Free Parking\",\n      \"Free Wireless Internet\"\n    ],\n    \"minLOSDefault\": 1,\n    \"maxLOSDefault\": 28,\n    \"minAdvBookDays\": 0,\n    \"maxAdvBookDays\": 500,\n    \"bookDateStart\": \"1900-01-01\",\n    \"bookDateEnd\": \"2079-06-06\",\n    \"travelDateStart\": \"1901-01-01\",\n    \"travelDateEnd\": \"2079-06-06\",\n    \"mobileOnly\": true,\n    \"_links\": {\n      \"self\": {\n        \"href\": \"https://services.expediapartnercentral.com/products/properties/3856296/roomTypes/200001552/ratePlans/200007569\"\n      }\n    }\n  }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH /properties/{id}/roomTypes/{id}",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "EQCtest12933870",
+						"password": "ew67nk33",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://services.expediapartnercentral.com/products/properties/3856296/roomTypes/200001552",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic RVFDdGVzdDEyOTMzODcwOmV3NjduazMz",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.expedia.eps.product-v2+json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.expedia.eps.product-v2+json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ageCategories\": [\n      {\n        \"category\": \"Adult\",\n        \"minAge\": 12\n      },\n      {\n        \"category\": \"ChildAgeA\",\n        \"minAge\": 7\n      },\n      {\n        \"category\": \"Infant\",\n        \"minAge\": 0\n      }\n    ],\n    \"wheelchairAccessibility\": false\n  }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH /properties/{id}/roomTypes/{id}/ratePlans",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "EQCtest12933870",
+						"password": "ew67nk33",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://services.expediapartnercentral.com/products/properties/3856296/roomTypes/200001552/ratePlans/200007569",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic RVFDdGVzdDEyOTMzODcwOmV3NjduazMz",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.expedia.eps.product-v2+json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.expedia.eps.product-v2+json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Free Parking and Internet\",\n    \"valueAddInclusions\": [\n      \"Free Parking\",\n      \"Free Wireless Internet\"\n    ],\n    \"mobileOnly\": true\n  }"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
