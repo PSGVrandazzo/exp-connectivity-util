@@ -2,6 +2,7 @@ package com.expedia.eps.property;
 
 import com.expedia.eps.ExpediaResponse;
 import com.expedia.eps.property.model.Property;
+import com.expedia.eps.property.model.PropertyResponse;
 import com.expedia.eps.property.model.PropertyStatus;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
+import org.springframework.http.ResponseEntity;
 import rx.Observable;
 
 public interface PropertyApi {
@@ -19,7 +21,7 @@ public interface PropertyApi {
 //        "Accept: application/json"
 //    })
 //    @RequestLine("GET /v1/properties/{provider}/{providerPropertyId}")
-//    Observable<ExpediaResponse<List<Property>>> getProperty(@Param("guid") String requestId,
+//    Observable<ExpediaResponse<Property>> getProperty(@Param("guid") String requestId,
 //                                                            @Param("provider") String provider,
 //                                                            @Param("providerPropertyId") String providerPropertyId);
 //
@@ -29,9 +31,9 @@ public interface PropertyApi {
         "Content-Type: application/json"
     })
     @RequestLine("POST /v1/properties/{provider}")
-    Observable<ExpediaResponse<PropertyStatus>> createOrUpdateProperties(@Param("guid") String requestId,
-                                                                         @Param("provider") String provider,
-                                                                         List<Property> properties);
+    Observable<ExpediaResponse<PropertyResponse>> createOrUpdateProperties(@Param("guid") String requestId,
+                                                                           @Param("provider") String provider,
+                                                                           List<Property> properties);
 //
 //    @Headers({
 //        "Request-ID: {guid}",
