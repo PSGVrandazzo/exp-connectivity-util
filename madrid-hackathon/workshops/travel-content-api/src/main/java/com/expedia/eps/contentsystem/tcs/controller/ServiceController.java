@@ -3,7 +3,7 @@ package com.expedia.eps.contentsystem.tcs.controller;
 import java.util.EnumSet;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,14 +31,14 @@ public class ServiceController {
     @ApiOperation(value = "Endpoint Summary Description goes here",
             notes = "Endpoint Complete Description goes here",
             response = Response.class)
-    @RequestMapping(value = "/dosomething", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<Response> doSomething(@RequestBody String text) throws Exception {
+    @RequestMapping(value = "/dosomething/{regionId}", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<Response> doSomething(@PathVariable("regionId") String regionId) throws Exception {
 
         // Start coding service implementation here..
         //
         // .. this is just a dummy example that calls TCS
         EnumSet<Section> sections = EnumSet.of(Section.ACTIVITY, Section.AFFINITY);
-        TcsDTO response = tcs.getContentForRegion(178281, "EN", Section.toList(sections), "gzip, deflate");
+        TcsDTO response = tcs.getContentForRegion(regionId, "EN", Section.toList(sections), "gzip, deflate");
         //
         //
 

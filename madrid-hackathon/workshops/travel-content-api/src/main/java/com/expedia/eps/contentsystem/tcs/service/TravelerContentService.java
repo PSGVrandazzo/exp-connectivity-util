@@ -15,13 +15,13 @@ import com.expedia.eps.contentsystem.tcs.domain.TcsDTO;
 public interface TravelerContentService {
 
     @RequestMapping(value = {"/travel-content/service/travel/regionId/{regionId}"}, method = RequestMethod.GET)
-    TcsDTO getContentForRegion(@PathVariable("regionId") Integer regionId,
+    TcsDTO getContentForRegion(@PathVariable("regionId") String regionId,
             @RequestParam("langId") String langId,
             @RequestParam("sections") List<String> sections,
             @RequestHeader(value="Accept-Encoding") String userAgent);
 
     @RequestMapping(value = {"/travel-content/service/travel/regionId/{regionId}"}, method = RequestMethod.GET)
-    TcsDTO getContentForRegionAndTag(@PathVariable("regionId") Integer regionId,
+    TcsDTO getContentForRegionAndTag(@PathVariable("regionId") String regionId,
             @RequestParam("tag") String tag,
             @RequestParam("langId") String langId,
             @RequestParam("sections") List<String> sections,

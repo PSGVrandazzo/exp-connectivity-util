@@ -24,7 +24,7 @@ You also get the Swagger integration automatically, you simply need to provide t
 
 ```bash
 git clone https://github.com/ExpediaInc/exp-connectivity-util.git
-cd exp-connectivity-util/madrid-hackathon/workshops/tcs-api
+cd exp-connectivity-util/madrid-hackathon/workshops/travel-content-api
 ```
 
 ## 2. Authentication parameters
@@ -61,5 +61,5 @@ You can simply go to the generated Swagger-UI page here: [http://localhost:8080/
 Or use the CURL command:
 
 ```bash
-curl -X GET --header 'Accept: application/json' 'http://localhost:8080/service/dosomething'
+curl -X GET --header 'Accept: application/json' 'http://localhost:8080/service/dosomething/178281'
 ```
